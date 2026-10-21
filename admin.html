@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - WHYZEE NIGERIA LIMITED</title>
+<style>
+:root{--purple:#5B1E8E;--bg:#F8F6FC;--border:#E9E5F2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,Segoe UI,sans-serif;background:var(--bg);padding:24px;color:#111827}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:26px;color:var(--purple)} .sub{color:#6B7280;font-size:13px;margin-top:4px}
+.tabs{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.tab{padding:10px 20px;border-radius:999px;border:1px solid var(--border);background:#fff;cursor:pointer;font-weight:700;font-size:14px}
+.tab.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;margin-top:18px;box-shadow:0 4px 16px rgba(0,0,0,.05)}
+.card h3{font-size:16px;margin-bottom:8px;color:var(--purple)}
+.input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border);margin-top:8px;font-size:14px}
+.label{font-size:11px;font-weight:800;color:#374151;margin-top:14px;display:block;text-transform:uppercase;letter-spacing:.5px}
+.btn{padding:11px 18px;border-radius:10px;border:0;background:var(--purple);color:#fff;font-weight:700;cursor:pointer;margin-top:12px}
+.btn-light{padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:12px;font-weight:600}
+.btn-danger{color:#B91C1C;border-color:#FCA5A5}
+.enq{border:1px solid var(--border);padding:14px;border-radius:12px;margin-bottom:12px;background:#fff}
+.enq b{color:var(--purple)}
+.saveMsg{display:none;margin-top:12px;background:#DCFCE7;color:#166534;padding:12px;border-radius:10px;font-weight:700;font-size:13px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>WHYZEE NIGERIA LIMITED - Admin</h1>
+<p class="sub">Manage quotations and work hours. All saved in browser localStorage.</p>
+
+<div class="tabs">
+<div class="tab active" id="tab1" onclick="switchTab(1)">📋 Quotation Enquiries (<span id="count">0</span>)</div>
+<div class="tab" id="tab2" onclick="switchTab(2)">⚙️ WhatsApp & Work Hours</div>
+<div class="tab" onclick="location.href='index.html'">🚪 Logout</div>
+</div>
+
+<!-- TAB 1: ENQUIRIES -->
+<div id="panel1" class="card">
+<h3>Quotation Enquiries - From products.html</h3>
+<div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+<button class="btn-light" onclick="exportCSV()">📥 Export CSV</button>
+<button class="btn-light btn-danger" onclick="clearAll()">🗑️ Clear All</button>
+<button class="btn-light" onclick="loadEnquiries()">🔄 Refresh</button>
+</div>
+<div id="enqList" style="margin-top:18px">Loading...</div>
+</div>
+
+<!-- TAB 2: SETTINGS + WORK HOURS -->
+<div id="panel2" class="card" style="display:none">
+<h3>🏬 Lagos Showroom</h3>
+<label class="label">Lagos Phone 1</label><input id="lagos1" class="input" placeholder="08035514153">
+<label class="label">Lagos Phone 2</label><input id="lagos2" class="input" placeholder="07042686855">
+<label class="label">Lagos WhatsApp Link</label><input id="waLagos" class="input" placeholder="https://wa.me/2348035514153">
+
+<h3 style="margin-top:26px">🏬 Abuja / Suleja Showroom</h3>
+<label class="label">Abuja Phone 1</label><input id="abuja1" class="input" placeholder="08054709685">
+<label class="label">Abuja Phone 2</label><input id="abuja2" class="input" placeholder="09018192213">
+<label class="label">Abuja WhatsApp Link</label><input id="waAbuja" class="input" placeholder="https://wa.me/2348054709685">
+
+<h3 style="margin-top:26px">⏰ WORK HOURS - CHANGE YOUR WORK TIME HERE (This is what you asked for)</h3>
+<label class="label">Work Hours Text (This will show on contact.html page)</label>
+<textarea id="workTime" class="input" rows="5" placeholder="Mon - Sat: 8am - 6pm&#10;Sunday: Closed&#10;Emergency: WhatsApp 24/7"></textarea>
+<p style="font-size:11px;color:#6B7280;margin-top:6px">Example: Mon - Fri: 8:00am - 6:00pm | Sat: 9:00am - 4:00pm | Sun: Closed | WhatsApp 24/7 Available</p>
+
+<h3 style="margin-top:26px">📧 Company Info</h3>
+<label class="label">Email</label><input id="email" class="input" placeholder="info@whyzee.com.ng">
+<label class="label">Website</label><input id="website" class="input" placeholder="www.whyzee.com.ng">
+<label class="label">Lagos Address</label><input id="addrLagos" class="input" placeholder="4A Victory Close, Ipaja, Lagos">
+
+<button class="btn" onclick="saveSettings()">💾 Save All Settings</button>
+<div id="saveMsg" class="saveMsg">✅ Settings saved! Work hours updated. Refresh contact.html to see changes.</div>
+</div>
+</div>
+
+<script>
+function switchTab(n){
+ document.getElementById('panel1').style.display=n===1?'block':'none';
+ document.getElementById('panel2').style.display=n===2?'block':'none';
+ document.getElementById('tab1').classList.toggle('active',n===1);
+ document.getElementById('tab2').classList.toggle('active',n===2);
+}
+function loadEnquiries(){
+ let data=JSON.parse(localStorage.getItem('whyzee_enquiries')||'[]');
+ document.getElementById('count').innerText=data.length;
+ let html='';
+ if(!data.length){ html='<p style="color:#6B7280">No enquiries yet. Go to products.html, add to cart and send enquiry.</p>'; }
+ else{
+  data.slice().reverse().forEach(e=>{
+   // FIX [object Object] BUG
+   let itemsText='';
+   if(Array.isArray(e.items)){
+    itemsText=e.items.map(it=> typeof it==='object'? `${it.name||it.title||'Product'} x${it.qty||1}` : it).join(', ');
+   } else if(typeof e.items==='object' && e.items!==null){
+    itemsText=Object.values(e.items).join(', ');
+   } else {
+    itemsText=e.items||'No items';
+   }
+   let phoneClean=(e.phone||'').replace(/[^0-9]/g,''); if(phoneClean.startsWith('0')) phoneClean='234'+phoneClean.slice(1);
+   html+=`<div class="enq">
+   <b>${e.ref||'WHY-0000'}</b> - ${e.name||''} - ${e.phone||''}<br>
+   <small style="color:#6B7280">${e.email||''} | ${e.location||''} | ${e.date||''}</small><br>
+   <div style="margin-top:8px;background:#F8F6FC;padding:8px;border-radius:8px;font-size:13px"><b>Items:</b> ${itemsText}</div>
+   ${e.note?'<div style="margin-top:6px;font-size:13px"><b>Note:</b> '+e.note+'</div>':''}
+   <div style="margin-top:10px"><a href="https://wa.me/${phoneClean}?text=Hello%20${encodeURIComponent(e.name||'')},%20your%20enquiry%20${e.ref||''}%20is%20received." target="_blank" style="color:var(--purple);font-weight:700;text-decoration:none">Reply on WhatsApp →</a></div>
+   </div>`;
+  });
+ }
+ document.getElementById('enqList').innerHTML=html;
+}
+function exportCSV(){
+ let data=JSON.parse(localStorage.getItem('whyzee_enquiries')||'[]');
+ if(!data.length){alert('No enquiries');return;}
+ let csv='Ref,Name,Phone,Email,Location,Items,Date\n';
+ data.forEach(e=>{
+  let items=Array.isArray(e.items)? e.items.map(it=>typeof it==='object'?it.name:it).join('|') : e.items;
+  csv+=`"${e.ref}","${e.name}","${e.phone}","${e.email}","${e.location}","${items}","${e.date}"\n`;
+ });
+ let blob=new Blob([csv],{type:'text/csv'}); let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='whyzee_enquiries.csv'; a.click();
+}
+function clearAll(){ if(confirm('Delete all enquiries?')){localStorage.removeItem('whyzee_enquiries'); loadEnquiries();} }
+function saveSettings(){
+ let s={
+  lagos1:document.getElementById('lagos1').value,
+  lagos2:document.getElementById('lagos2').value,
+  abuja1:document.getElementById('abuja1').value,
+  abuja2:document.getElementById('abuja2').value,
+  waLagos:document.getElementById('waLagos').value,
+  waAbuja:document.getElementById('waAbuja').value,
+  workTime:document.getElementById('workTime').value,
+  email:document.getElementById('email').value,
+  website:document.getElementById('website').value,
+  addrLagos:document.getElementById('addrLagos').value
+ };
+ localStorage.setItem('whyzee_settings',JSON.stringify(s));
+ let msg=document.getElementById('saveMsg'); msg.style.display='block'; setTimeout(()=>msg.style.display='none',4000);
+}
+function loadSettings(){
+ let s=JSON.parse(localStorage.getItem('whyzee_settings')||'null');
+ if(!s){
+  document.getElementById('lagos1').value='08035514153';
+  document.getElementById('lagos2').value='07042686855';
+  document.getElementById('abuja1').value='08054709685';
+  document.getElementById('abuja2').value='09018192213';
+  document.getElementById('waLagos').value='https://wa.me/2348035514153';
+  document.getElementById('waAbuja').value='https://wa.me/2348054709685';
+  document.getElementById('workTime').value='Mon - Sat: 8am - 6pm\nSunday: Closed\nEmergency: WhatsApp 24/7 Available';
+  document.getElementById('email').value='info@whyzee.com.ng';
+  document.getElementById('website').value='www.whyzee.com.ng';
+  document.getElementById('addrLagos').value='4A Victory Close, Majiyagbe Layout, Church Bus Stop, Ipaja, Lagos';
+  return;
+ }
+ document.getElementById('lagos1').value=s.lagos1||'';
+ document.getElementById('lagos2').value=s.lagos2||'';
+ document.getElementById('abuja1').value=s.abuja1||'';
+ document.getElementById('abuja2').value=s.abuja2||'';
+ document.getElementById('waLagos').value=s.waLagos||'';
+ document.getElementById('waAbuja').value=s.waAbuja||'';
+ document.getElementById('workTime').value=s.workTime||'';
+ document.getElementById('email').value=s.email||'';
+ document.getElementById('website').value=s.website||'';
+ document.getElementById('addrLagos').value=s.addrLagos||'';
+}
+loadEnquiries(); loadSettings();
+</script>
+</body>
+</html>
