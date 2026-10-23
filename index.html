@@ -4,942 +4,541 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WHYZEE NIGERIA LIMITED - Medical Science Technology</title>
-<!-- Google Fonts: Inter & Outfit -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-<!-- FontAwesome Icons for touch-friendly mobile elements -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
-:root {
-  --purple: #5B1E8E;
-  --purple-dark: #43136B;
-  --purple-light: #F2ECF9;
-  --purple-glow: rgba(91, 30, 142, 0.15);
-  --bg: #F8F7FC;
-  --card-bg: #FFFFFF;
-  --border: #E8E3F0;
-  --text-main: #1E1B24;
-  --text-muted: #625C6E;
-  --wa: #25D366;
-  --wa-dark: #1EBE5A;
-  --radius: 16px;
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg);
-  color: var(--text-main);
-  line-height: 1.5;
-  overflow-x: hidden;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-@media (min-width: 640px) {
-  .container {
-    padding: 0 24px;
-  }
-}
-
-/* Header & Nav */
-header {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 72px;
-  display: flex;
-  align-items: center;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.logo-wrap img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 50%;
-  border: 2px solid var(--purple);
-  background: #fff;
-  padding: 2px;
-  box-shadow: 0 2px 8px var(--purple-glow);
-}
-
-.logo-text b {
-  font-family: 'Outfit', sans-serif;
-  color: var(--purple);
-  font-size: 15px;
-  line-height: 1.2;
-  letter-spacing: -0.2px;
-  display: block;
-}
-
-.logo-text span {
-  font-size: 10px;
-  color: var(--text-muted);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* Hamburger Trigger */
-.hamburger {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: var(--purple-light);
-  color: var(--purple);
-  border: 0;
-  border-radius: 12px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.hamburger:active {
-  transform: scale(0.92);
-}
-
-/* Off-canvas Navigation Drawer */
-.nav-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(17, 12, 28, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 150;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
-}
-
-.nav-backdrop.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.nav-links {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 280px;
-  height: 100vh;
-  background: #fff;
-  z-index: 200;
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.15);
-  transition: var(--transition);
-  overflow-y: auto;
-}
-
-.nav-links.open {
-  right: 0;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 16px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-
-.drawer-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--purple);
-}
-
-.close-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 0;
-  background: var(--bg);
-  color: var(--text-main);
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-main);
-  font-size: 15px;
-  font-weight: 600;
-  padding: 12px 16px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: var(--transition);
-}
-
-.nav-links a i {
-  font-size: 16px;
-  color: var(--text-muted);
-  width: 20px;
-}
-
-.nav-links a:hover, .nav-links a:active {
-  background: var(--purple-light);
-  color: var(--purple);
-}
-
-.nav-links a:hover i {
-  color: var(--purple);
-}
-
-.nav-links a.active {
-  background: var(--purple);
-  color: #fff;
-}
-
-.nav-links a.active i {
-  color: #fff;
-}
-
-/* Nav Action Badges in Drawer */
-.nav-links .btn-nav {
-  margin-top: 6px;
-  justify-content: center;
-  text-align: center;
-  padding: 12px;
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-.nav-links .btn-admin {
-  background: var(--purple-light);
-  color: var(--purple);
-}
-
-.nav-links .btn-whatsapp {
-  background: var(--wa);
-  color: #fff;
-}
-
-.nav-links .btn-whatsapp i {
-  color: #fff;
-}
-
-/* Desktop Navigation Styles */
-@media (min-width: 992px) {
-  .hamburger {
-    display: none;
+  :root {
+    --purple: #5B1E8E;
+    --purple-light: #f1e9f9;
+    --purple-dark: #43136d;
+    --bg: #F8F6FC;
+    --border: #E9E5F2;
+    --wa: #25D366;
+    --grey: #6B7280;
+    --dark: #111827;
   }
 
-  .nav-backdrop {
-    display: none;
-  }
-
-  .nav-links {
-    position: static;
-    width: auto;
-    height: auto;
-    background: transparent;
+  * {
+    margin: 0;
     padding: 0;
-    box-shadow: none;
-    flex-direction: row;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header & Navigation */
+  header {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 76px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo-wrap {
+    display: flex;
     align-items: center;
     gap: 12px;
-    overflow-y: visible;
   }
 
-  .drawer-header {
-    display: none;
+  .logo-wrap img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid var(--purple);
+    background: #fff;
+  }
+
+  .logo-text b {
+    color: var(--purple);
+    font-size: 15px;
+    display: block;
+    line-height: 1.2;
+  }
+
+  .logo-text span {
+    font-size: 11px;
+    color: var(--grey);
+    letter-spacing: 0.5px;
+  }
+
+  /* Desktop Nav Links */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
   }
 
   .nav-links a {
-    padding: 8px 14px;
+    text-decoration: none;
+    color: var(--dark);
     font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--purple);
+    font-weight: 700;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 10px 20px;
     border-radius: 999px;
+    border: 0;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
   }
 
-  .nav-links a i {
-    display: none;
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
   }
 
-  .nav-links .btn-admin {
+  .btn-purple {
     background: var(--purple);
     color: #fff;
   }
 
-  .nav-links .btn-admin:hover {
-    background: var(--purple-dark);
-  }
-
-  .nav-links .btn-whatsapp {
+  .btn-wa {
     background: var(--wa);
     color: #fff;
   }
 
-  .nav-links .btn-whatsapp:hover {
-    background: var(--wa-dark);
+  .btn-outline {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--dark);
   }
-}
 
-/* Typography & General Buttons */
-h1, h2, h3 {
-  font-family: 'Outfit', sans-serif;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
-}
+  /* Hamburger Toggle Button */
+  .hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--purple);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+  }
 
-.btn {
-  min-height: 46px;
-  padding: 12px 22px;
-  border-radius: 999px;
-  border: 0;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: var(--transition);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
+  /* Mobile Nav Drawer Container */
+  .nav-overlay {
+    display: none;
+  }
 
-.btn:active {
-  transform: scale(0.97);
-}
-
-.btn-purple {
-  background: var(--purple);
-  color: #fff;
-}
-
-.btn-purple:hover {
-  background: var(--purple-dark);
-  box-shadow: 0 6px 16px var(--purple-glow);
-}
-
-.btn-outline {
-  background: #fff;
-  border: 1.5px solid var(--border);
-  color: var(--purple);
-}
-
-.btn-outline:hover {
-  border-color: var(--purple);
-  background: var(--purple-light);
-}
-
-/* Hero Section */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  padding: 32px 0;
-  align-items: center;
-}
-
-@media (min-width: 992px) {
+  /* Hero Section */
   .hero {
-    grid-template-columns: 1.15fr 0.85fr;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 40px;
-    padding: 60px 0;
+    padding: 50px 0;
+    align-items: center;
   }
-}
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--purple-light);
-  color: var(--purple);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 16px;
-}
-
-.hero h1 {
-  font-size: 30px;
-  line-height: 1.2;
-  color: var(--purple);
-  margin-bottom: 14px;
-}
-
-@media (min-width: 640px) {
   .hero h1 {
-    font-size: 38px;
+    font-size: 42px;
+    line-height: 1.15;
+    color: var(--purple);
+    margin-bottom: 16px;
+    font-weight: 800;
   }
-}
 
-@media (min-width: 992px) {
-  .hero h1 {
-    font-size: 46px;
+  .hero p {
+    font-size: 16px;
+    color: #4B5563;
+    line-height: 1.6;
   }
-}
 
-.hero p {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* Badges List */
-.tag-list {
-  margin-top: 20px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.tag-item {
-  background: #fff;
-  border: 1px solid var(--border);
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-
-.tag-item i {
-  color: var(--purple);
-}
-
-/* Action Button Group */
-.cta-group {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-@media (min-width: 480px) {
-  .cta-group {
-    flex-direction: row;
+  .hero-badges {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
     flex-wrap: wrap;
   }
-  .cta-group .btn {
-    flex: 1;
+
+  .badge {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   }
-}
 
-@media (min-width: 992px) {
-  .cta-group .btn {
-    flex: initial;
+  .hero-buttons {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
   }
-}
 
-/* Location Card */
-.location-card {
-  margin-top: 24px;
-  background: #fff;
-  border: 1px solid var(--border);
-  padding: 16px;
-  border-radius: var(--radius);
-  font-size: 13px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-}
-
-.location-card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: var(--purple);
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px dashed var(--border);
-}
-
-.location-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-@media (min-width: 640px) {
-  .location-grid {
-    grid-template-columns: 1fr 1fr;
+  .contact-box {
+    margin-top: 24px;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.6;
   }
-}
 
-.location-item {
-  line-height: 1.4;
-  color: var(--text-muted);
-}
-
-.location-item b {
-  color: var(--text-main);
-  display: block;
-}
-
-.location-item a {
-  color: var(--purple);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact-direct {
-  margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--text-muted);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-}
-
-.contact-direct a {
-  color: var(--purple);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Hero Image Wrapper */
-.hero-img-wrap {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 16px 32px var(--purple-glow);
-  background: #fff;
-}
-
-.hero-img-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.hero-img-wrap:hover img {
-  transform: scale(1.02);
-}
-
-/* Products Section */
-.products-section {
-  padding: 40px 0 60px 0;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-.section-header h2 {
-  font-size: 26px;
-  color: var(--purple);
-}
-
-@media (min-width: 640px) {
-  .section-header h2 {
-    font-size: 32px;
+  /* Products Grid */
+  .products-section {
+    padding: 40px 0 60px;
   }
-}
 
-.section-header p {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-top: 4px;
-}
+  .section-title {
+    text-align: center;
+    font-size: 28px;
+    color: var(--purple);
+    margin-bottom: 6px;
+  }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
+  .section-subtitle {
+    text-align: center;
+    color: var(--grey);
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
 
-@media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
-}
 
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    transition: all 0.2s ease;
   }
-}
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px 12px;
-  text-align: center;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 110px;
-  cursor: pointer;
-}
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(91, 30, 142, 0.08);
+    border-color: var(--purple);
+    color: var(--purple);
+  }
 
-.card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--purple-light);
-  color: var(--purple);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  transition: var(--transition);
-}
+  /* Footer */
+  .footer {
+    background: var(--purple-dark);
+    color: #fff;
+    padding: 40px 0;
+    margin-top: 40px;
+  }
 
-.card-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-
-.card:hover, .card:active {
-  transform: translateY(-4px);
-  border-color: var(--purple);
-  box-shadow: 0 10px 20px var(--purple-glow);
-}
-
-.card:hover .card-icon {
-  background: var(--purple);
-  color: #fff;
-}
-
-/* Footer */
-.footer {
-  background: var(--purple-dark);
-  color: #fff;
-  padding: 40px 0 24px 0;
-  margin-top: 40px;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-@media (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
+  .footer-container {
+    display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
   }
-}
 
-.footer-brand b {
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px;
-  display: block;
-  margin-bottom: 4px;
-  letter-spacing: -0.3px;
-}
+  .footer-links a {
+    color: #E9E5F2;
+    text-decoration: none;
+    margin-right: 12px;
+    font-size: 14px;
+  }
 
-.footer-brand p {
-  color: rgba(255,255,255,0.7);
-  font-size: 13px;
-  line-height: 1.5;
-}
+  .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
+  /* RESPONSIVE DESIGN (Tablets & Phones) */
+  @media (max-width: 992px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 30px 0;
+      text-align: center;
+    }
 
-.footer-links a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: var(--transition);
-  padding: 4px 0;
-}
+    .hero h1 {
+      font-size: 32px;
+    }
 
-.footer-links a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
+    .hero-badges, .hero-buttons {
+      justify-content: center;
+    }
 
-.footer-contacts {
-  margin-top: 12px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.8);
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-.footer-bottom {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-}
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    /* Backdrop overlay */
+    .nav-overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Mobile Dropdown Nav */
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: #fff;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 80px 24px 30px;
+      gap: 16px;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+      z-index: 999;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .nav-links.open {
+      right: 0;
+    }
+
+    /* Nav Links Styling in Mobile */
+    .nav-links a {
+      padding: 12px 16px;
+      font-size: 16px;
+      border-radius: 8px;
+      display: block;
+      text-align: left;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--purple-light);
+    }
+
+    .nav-links a[style*="background"] {
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* Close Button inside Mobile Nav */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: var(--grey);
+      cursor: pointer;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+    }
+
+    .hero p {
+      font-size: 14px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-container div {
+      text-align: center !important;
+    }
+  }
 </style>
 </head>
 <body>
 
-<!-- Backdrop for Mobile Drawer -->
-<div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
-
 <header>
   <div class="container nav">
-    <a href="index.html" class="logo-wrap">
-      <!-- Fallback image triggers if local file isn't present -->
-      <img src="assets/Logo.png" alt="WHYZEE Logo" onerror="this.src='https://placehold.co/100x100/5B1E8E/FFFFFF?text=WHYZEE'">
+    <div class="logo-wrap">
+      <img src="assets/Logo.png" alt="WHYZEE Logo" onerror="this.src='https://via.placeholder.com/50?text=W'">
       <div class="logo-text">
         <b>WHYZEE NIGERIA LTD</b>
-        <span>Medical • Science • Tech</span>
+        <span>Medical • Science • Technology</span>
       </div>
-    </a>
+    </div>
 
-    <button class="hamburger" onclick="openNav()" aria-label="Open Navigation Menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <!-- Toggle Hamburger Button -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
 
+    <!-- Overlay Screen for Mobile Menu -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Nav Links Container -->
     <nav class="nav-links" id="navLinks">
-      <div class="drawer-header">
-        <span class="drawer-title">Navigation</span>
-        <button class="close-btn" onclick="closeNav()" aria-label="Close Navigation Menu">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      
-      <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="products.html"><i class="fa-solid fa-box-open"></i> Products</a>
-      <a href="service.html"><i class="fa-solid fa-hand-holding-medical"></i> Services</a>
-      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
-      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
-      <a href="admin.html" class="btn-nav btn-admin"><i class="fa-solid fa-user-shield"></i> Admin Panel</a>
-      <a href="https://wa.me/2348035514153" target="_blank" class="btn-nav btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+      <button class="close-btn" id="closeBtn">&times;</button>
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">Products</a>
+      <a href="service.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html" class="btn btn-purple" style="color:#fff;">Admin</a>
+      <a href="https://wa.me/2348035514153" target="_blank" class="btn btn-wa" style="color:#fff;">WhatsApp</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <!-- Hero Section -->
-  <section class="container hero">
-    <div>
-      <div class="hero-badge">
-        <i class="fa-solid fa-shield-halved"></i> Certified Medical Supplier
-      </div>
-      <h1>Powering Healthcare Across Nigeria</h1>
-      <p>Your trusted partner for premium medical, laboratory, and diagnostic equipment. Supplying state-of-the-art Lab Furniture, Hospital Beds, Manikin Models, Biosafety Cabinets, ICT, and E-Library solutions nationwide.</p>
-      
-      <!-- Feature Tags -->
-      <div class="tag-list">
-        <span class="tag-item"><i class="fa-solid fa-circle-check"></i> Top Quality</span>
-        <span class="tag-item"><i class="fa-solid fa-tag"></i> Affordable</span>
-        <span class="tag-item"><i class="fa-solid fa-truck-fast"></i> Nationwide Delivery</span>
-      </div>
-
-      <!-- Call to Action Buttons -->
-      <div class="cta-group">
-        <a href="products.html" class="btn btn-purple">
-          View Products <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="service.html" class="btn btn-outline">Our Services</a>
-        <a href="contact.html" class="btn btn-outline">Contact Us</a>
-      </div>
-
-      <!-- Contact Location Card -->
-      <div class="location-card">
-        <div class="location-card-header">
-          <i class="fa-solid fa-location-dot"></i> Regional Contact Offices
-        </div>
-        <div class="location-grid">
-          <div class="location-item">
-            <b>Lagos State:</b>
-            4A Victory Close, Majiyagbe Layout, Church Bus Stop, Ipaja.
-            <br><a href="tel:08035514153"><i class="fa-solid fa-phone"></i> 08035514153</a>
-          </div>
-          <div class="location-item">
-            <b>Abuja (FCT):</b>
-            2 Methodist Church Close, Behind First Bank, Suleja.
-            <br><a href="tel:08054709685"><i class="fa-solid fa-phone"></i> 08054709685</a>
-          </div>
-        </div>
-        <div class="contact-direct">
-          <span><i class="fa-solid fa-envelope"></i> info@whyzee.com.ng</span>
-          <span><i class="fa-solid fa-globe"></i> www.whyzee.com.ng</span>
-        </div>
-      </div>
+<main class="container hero">
+  <div>
+    <h1>Powering Healthcare Across Nigeria</h1>
+    <p>Your trusted partner for premium medical, laboratory, and diagnostic equipment. Lab Furniture, Medical Hospital Equipment, Language Lab, ICT Lab, E-Library, Engineering Equipment, Hospital Beds, Manikin Models, Biosafety Cabinets.</p>
+    
+    <div class="hero-badges">
+      <span class="badge">✅ Top Quality</span>
+      <span class="badge">💰 Affordable</span>
+      <span class="badge">🚚 Nationwide Delivery</span>
     </div>
 
-    <!-- Hero Image Banner -->
-    <div class="hero-img-wrap">
-      <img src="assets/Logo.png" alt="WHYZEE Products Brochure" onerror="this.src='https://placehold.co/600x450/5B1E8E/FFFFFF?text=WHYZEE+Medical+Equipment'">
-    </div> 
-  </section>
-
-  <!-- Products Section -->
-  <section class="container products-section">
-    <div class="section-header">
-      <h2>Laboratory & Medical Products</h2>
-      <p>For Educational Institutions • Industrial Labs • Healthcare Centers</p>
+    <div class="hero-buttons">
+      <a href="products.html" class="btn btn-purple">View Products</a>
+      <a href="service.html" class="btn btn-outline" style="color:var(--purple); border-color:var(--purple)">Our Services</a>
+      <a href="contact.html" class="btn btn-outline">Contact Us</a>
     </div>
 
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-vials"></i></div>
-        <div class="card-title">Lab Furniture & Fittings</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
-        <div class="card-title">Lab Equipment & Consumables</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-kit-medical"></i></div>
-        <div class="card-title">Medical & Hospital Equipment</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-atom"></i></div>
-        <div class="card-title">GC-MS Solutions</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
-        <div class="card-title">Language Lab & Gadgets</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
-        <div class="card-title">Science Lab Equipment</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-book-bookmark"></i></div>
-        <div class="card-title">E-Library & Library</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
-        <div class="card-title">Universal Testing Machine</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-bed-pulse"></i></div>
-        <div class="card-title">1/2 Crank Hospital Bed</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-child-rearing"></i></div>
-        <div class="card-title">Manikin & Anatomical Models</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-        <div class="card-title">Lecture Theatre Equipment</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
-        <div class="card-title">Resistive Machine</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-box-tissue"></i></div>
-        <div class="card-title">Biosafety Cabinet</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-table"></i></div>
-        <div class="card-title">Cadaver Table</div>
-      </div>
+    <div class="contact-box">
+      <p><b>Lagos:</b> 4A Victory Close, Majiyagbe Layout, Church Bus Stop, Ipaja. 📞 08035514153</p>
+      <p style="margin-top: 6px;"><b>Abuja:</b> 2 Methodist Church Close, Behind First Bank, Suleja. 📞 09018192213</p>
+      <p style="margin-top: 6px; color:var(--purple); font-weight: 600;">✉️ info@whyzee.com.ng | 🌐 www.whyzee.com.ng</p>
     </div>
-  </section>
+  </div>
+
+  <div>
+    <img src="assets/Logo.png" alt="WHYZEE Products" style="width:100%; border-radius:16px; box-shadow:0 15px 35px rgba(91,30,142,0.12); background:#fff;" onerror="this.src='https://via.placeholder.com/600x400?text=WHYZEE+Products'">
+  </div> 
 </main>
 
+<section class="container products-section">
+  <h2 class="section-title">Laboratory & Medical Products</h2>
+  <p class="section-subtitle">For Education • Industries • Healthcare</p>
+  
+  <div class="grid">
+    <div class="card">Lab Furniture & Fittings</div>
+    <div class="card">Lab Equipment & Consumables</div>
+    <div class="card">Medical & Hospital Equipment</div>
+    <div class="card">GC-MS</div>
+    <div class="card">Language Lab & Gadgets</div>
+    <div class="card">Science Lab Equipment</div>
+    <div class="card">E-Library & Library</div>
+    <div class="card">Universal Testing Machine</div>
+    <div class="card">1/2 Crank Hospital Bed</div>
+    <div class="card">Manikin & Models</div>
+    <div class="card">Lecture Theatre</div>
+    <div class="card">Resistive Machine</div>
+    <div class="card">Biosafety Cabinet</div>
+    <div class="card">Cadaver Table</div>
+  </div>
+</section>
+
 <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <b>WHYZEE NIGERIA LIMITED</b>
-        <p>Medical • Science • Technology</p>
-        <p style="margin-top:6px; font-size:12px;">Top Quality • Affordable Pricing • Nationwide Delivery</p>
-      </div>
-
-      <div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="service.html">Services</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-contacts">
-          <div><i class="fa-solid fa-phone"></i> Lagos: 08035514153</div>
-          <div><i class="fa-solid fa-phone"></i> Abuja: 08054709685</div>
-        </div>
-      </div>
+  <div class="container footer-container">
+    <div>
+      <b style="font-size:16px;">WHYZEE NIGERIA LIMITED</b>
+      <p style="font-size:13px; opacity:0.85; margin-top:4px;">Medical Science Technology<br>Top Quality • Affordable • Nationwide Delivery</p>
     </div>
-
-    <div class="footer-bottom">
-      &copy; WHYZEE NIGERIA LIMITED. All rights reserved.
+    <div style="text-align:right">
+      <div class="footer-links" style="margin-bottom: 10px;">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="service.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p style="font-size:13px; opacity:0.85;">Lagos: 08035514153 | Abuja: 08054709685</p>
     </div>
   </div>
 </footer>
 
 <script>
-// Toggle mobile navigation menu drawer
-function openNav() {
-  document.getElementById('navLinks').classList.add('open');
-  document.getElementById('navBackdrop').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
 
-function closeNav() {
-  document.getElementById('navLinks').classList.remove('open');
-  document.getElementById('navBackdrop').classList.remove('open');
-  document.body.style.overflow = 'auto';
-}
+  function openMenu() {
+    navLinks.classList.add('open');
+    navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevents scrolling behind open menu
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  hamburgerBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  navOverlay.addEventListener('click', closeMenu);
+
+  // Close menu when clicking links on mobile
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 </script>
 
 </body>
