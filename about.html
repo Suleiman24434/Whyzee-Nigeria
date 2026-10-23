@@ -39,7 +39,13 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 32px;
+}
+
+/* Extra side spacing wrapper for main content */
+.about-wrapper {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 /* ==========================================================================
@@ -167,7 +173,7 @@ header {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
-  padding: 50px 0 30px 0;
+  padding: 40px 0 24px 0;
   align-items: center;
 }
 
@@ -249,8 +255,14 @@ header {
     height: 70px;
   }
 
+  /* Generous left and right spacing on mobile screen */
   .container {
-    padding: 0 20px;
+    padding: 0 28px;
+  }
+
+  .about-wrapper {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .logo-wrap img {
@@ -278,7 +290,7 @@ header {
     right: 0;
     background: #ffffff;
     flex-direction: column;
-    padding: 24px 20px;
+    padding: 24px 28px;
     gap: 12px;
     border-bottom: 1px solid var(--border);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
@@ -298,11 +310,11 @@ header {
   }
 
   .hero {
-    padding: 30px 0;
+    padding: 28px 0;
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1.25;
   }
 
@@ -320,13 +332,17 @@ header {
   }
 
   .footer {
-    padding: 24px 16px;
+    padding: 24px 20px;
     font-size: 13px;
     line-height: 1.6;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 24px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -366,53 +382,57 @@ header {
   </div>
 </header>
 
-<main class="container hero">
-  <div>
-    <h1>About WHYZEE NIGERIA LIMITED</h1>
-    <p>
-      WHYZEE NIGERIA LIMITED is a leading supplier of medical, scientific and laboratory equipment in Nigeria. We provide for <b>Education, Industries and Healthcare</b> sectors.<br><br>
-      From lab furniture to hospital beds, biosafety cabinets, GC-MS, manikin models, language labs, ICT labs, E-Library and engineering equipment - we deliver <b>Top Quality, Affordable prices, Nationwide Delivery</b>.<br><br>
-      Our mission is to power healthcare and education across Nigeria with world-class equipment and after-sales support.
-    </p>
-    <div class="hero-actions">
-      <a href="products.html" class="btn btn-purple">View Products</a>
-      <a href="contact.html" class="btn" style="background:#fff;border:1px solid var(--border);color:var(--purple);">Contact Us</a>
-    </div>
-  </div>
-</main>
+<div class="container">
+  <div class="about-wrapper">
+    <main class="hero">
+      <div>
+        <h1>About WHYZEE NIGERIA LIMITED</h1>
+        <p>
+          WHYZEE NIGERIA LIMITED is a leading supplier of medical, scientific and laboratory equipment in Nigeria. We provide for <b>Education, Industries and Healthcare</b> sectors.<br><br>
+          From lab furniture to hospital beds, biosafety cabinets, GC-MS, manikin models, language labs, ICT labs, E-Library and engineering equipment - we deliver <b>Top Quality, Affordable prices, Nationwide Delivery</b>.<br><br>
+          Our mission is to power healthcare and education across Nigeria with world-class equipment and after-sales support.
+        </p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-purple">View Products</a>
+          <a href="contact.html" class="btn" style="background:#fff;border:1px solid var(--border);color:var(--purple);">Contact Us</a>
+        </div>
+      </div>
+    </main>
 
-<section class="container">
-  <div class="grid">
-    <div class="card">
-      <h3>10+ Years</h3>
-      <p>Experience in medical & lab supply</p>
-    </div>
-    <div class="card">
-      <h3>1000+ Clients</h3>
-      <p>Schools, Hospitals, Industries</p>
-    </div>
-    <div class="card">
-      <h3>2 Showrooms</h3>
-      <p>Lagos & Abuja/Suleja</p>
-    </div>
-    <div class="card">
-      <h3>24/7 Support</h3>
-      <p>WhatsApp enquiry support</p>
-    </div>
-  </div>
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h3>10+ Years</h3>
+          <p>Experience in medical & lab supply</p>
+        </div>
+        <div class="card">
+          <h3>1000+ Clients</h3>
+          <p>Schools, Hospitals, Industries</p>
+        </div>
+        <div class="card">
+          <h3>2 Showrooms</h3>
+          <p>Lagos & Abuja/Suleja</p>
+        </div>
+        <div class="card">
+          <h3>24/7 Support</h3>
+          <p>WhatsApp enquiry support</p>
+        </div>
+      </div>
 
-  <div class="card" style="margin-top: 20px;">
-    <h3 style="color:var(--purple); margin-bottom: 8px;">Why Choose WHYZEE?</h3>
-    <div class="why-choose-list">
-      ✅ Top Quality Equipment<br>
-      💰 Affordable Prices<br>
-      🚚 Nationwide Delivery<br>
-      🔧 Installation & Training<br>
-      🛠️ After-Sales Support & Maintenance<br>
-      💬 24/7 WhatsApp Support
-    </div>
+      <div class="card" style="margin-top: 20px;">
+        <h3 style="color:var(--purple); margin-bottom: 8px;">Why Choose WHYZEE?</h3>
+        <div class="why-choose-list">
+          ✅ Top Quality Equipment<br>
+          💰 Affordable Prices<br>
+          🚚 Nationwide Delivery<br>
+          🔧 Installation & Training<br>
+          🛠️ After-Sales Support & Maintenance<br>
+          💬 24/7 WhatsApp Support
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+</div>
 
 <footer class="footer">
   <div class="container">
