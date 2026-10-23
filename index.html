@@ -25,7 +25,28 @@ header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top
 .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center;transition:.2s}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(91,30,142,.1)}
 .footer{background:var(--purple);color:#fff;padding:30px 0;margin-top:40px}
-@media(max-width:900px){.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;padding:20px;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.hamburger{display:block}.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
+
+/* === MOBILE FIX - GREEN AND ACCURATE === */
+@media(max-width:800px){
+  /* Make header green on mobile as you requested */
+  header{background:var(--green) !important}
+  .logo-wrap img{border-color:#fff;width:50px;height:50px}
+  .logo-text b{color:#fff !important;font-size:15px}
+  .logo-text span{color:#d1f5d6 !important}
+  .nav{height:70px;padding:0 10px}
+  .hero{grid-template-columns:1fr !important;padding:20px 0}
+  .hero h1{font-size:28px !important;color:var(--green) !important;text-align:center}
+  .hero p{text-align:center;font-size:15px}
+  .hero > div:last-child{order:-1;margin-bottom:15px} /* brochure on top on mobile */
+  .grid{grid-template-columns:1fr 1fr !important}
+  .footer{background:var(--green) !important}
+  .btn-purple{background:var(--green) !important}
+  .btn{padding:10px 16px;font-size:14px}
+}
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr !important}
+  .container{padding:0 15px}
+}
 </style>
 </head>
 <body>
@@ -69,8 +90,8 @@ info@whyzee.com.ng | www.whyzee.com.ng
 </div>
 </div>
 <div>
-    <!-- <img src="assets/Logo.jng" alt="WHYZEE Products" style="width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(91,30,142,.15);background:#fff" onerror="this.src='assets/logo.png'">
-</div> -->
+<img src="assets/brochure.jeg" alt="WHYZEE Products" style="width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(91,30,142,.15);background:#fff" onerror="this.src='assets/logo.png'">
+</div> 
 
 </div>
 
