@@ -5,410 +5,371 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WHYZEE NIGERIA LIMITED - Medical Science Technology</title>
 <style>
-  :root {
-    --purple: #5B1E8E;
-    --purple-light: #f1e9f9;
-    --purple-dark: #43136d;
-    --bg: #F8F6FC;
-    --border: #E9E5F2;
-    --wa: #25D366;
-    --grey: #6B7280;
-    --dark: #111827;
-  }
+:root {
+  --purple: #5B1E8E;
+  --purple-light: #7A2BC2;
+  --bg: #F8F6FC;
+  --border: #E9E5F2;
+  --wa: #25D366;
+  --grey: #6B7280;
+  --shadow: 0 4px 14px rgba(91, 30, 142, 0.08);
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--dark);
-    line-height: 1.5;
-  }
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: #111827;
+  line-height: 1.5;
+}
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-  /* Header & Navigation */
-  header {
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    height: 76px;
-    display: flex;
-    align-items: center;
-  }
+/* Header & Nav */
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-  .logo-wrap {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-  .logo-wrap img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    border-radius: 50%;
-    border: 2px solid var(--purple);
-    background: #fff;
-  }
+.logo-wrap img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  background: #fff;
+}
 
-  .logo-text b {
-    color: var(--purple);
-    font-size: 15px;
+.logo-text b {
+  color: var(--purple);
+  font-size: 15px;
+  display: block;
+  line-height: 1.2;
+}
+
+.logo-text span {
+  font-size: 11px;
+  color: var(--grey);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-purple {
+  background: var(--purple);
+  color: #fff;
+}
+
+.btn-purple:hover {
+  background: var(--purple-light);
+}
+
+.btn-wa {
+  background: var(--wa);
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: var(--purple);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  padding: 50px 0;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--purple);
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+
+.hero p {
+  color: #4B5563;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hero-badges {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hero-badges span {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.hero-buttons {
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  margin-top: 22px;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  box-shadow: var(--shadow);
+}
+
+/* Products Section Grid */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--grey);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0 50px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1F2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(91, 30, 142, 0.12);
+  border-color: var(--purple);
+}
+
+/* Footer */
+.footer {
+  background: var(--purple);
+  color: #fff;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 12px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   MOBILE & TABLET RESPONSIVE STYLES
+   ========================================================== */
+@media (max-width: 868px) {
+  .hamburger {
     display: block;
-    line-height: 1.2;
   }
 
-  .logo-text span {
-    font-size: 11px;
-    color: var(--grey);
-    letter-spacing: 0.5px;
-  }
-
-  /* Desktop Nav Links */
+  /* Mobile Dropdown Navigation */
   .nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 20px 24px;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+
+    /* Smooth Dropdown Animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: left;
+    background: #F9FAFB;
+    border: 1px solid #F3F4F6;
   }
 
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: var(--purple);
-    font-weight: 700;
+  .nav-links a:hover {
+    background: var(--bg);
   }
 
-  /* Buttons */
-  .btn {
-    padding: 10px 20px;
-    border-radius: 999px;
-    border: 0;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-  }
-
-  .btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-
-  .btn-purple {
-    background: var(--purple);
-    color: #fff;
-  }
-
-  .btn-wa {
-    background: var(--wa);
-    color: #fff;
-  }
-
-  .btn-outline {
-    background: #fff;
-    border: 1px solid var(--border);
-    color: var(--dark);
-  }
-
-  /* Hamburger Toggle Button */
-  .hamburger {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: var(--purple);
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 8px;
-  }
-
-  /* Mobile Nav Drawer Container */
-  .nav-overlay {
-    display: none;
-  }
-
-  /* Hero Section */
+  /* Hero Adjustments */
   .hero {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
-    padding: 50px 0;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 30px 0;
+    text-align: left;
   }
 
   .hero h1 {
-    font-size: 42px;
-    line-height: 1.15;
-    color: var(--purple);
-    margin-bottom: 16px;
-    font-weight: 800;
-  }
-
-  .hero p {
-    font-size: 16px;
-    color: #4B5563;
-    line-height: 1.6;
-  }
-
-  .hero-badges {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    background: #fff;
-    border: 1px solid var(--border);
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    font-size: 30px;
   }
 
   .hero-buttons {
-    margin-top: 24px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
-  .contact-box {
-    margin-top: 24px;
-    background: #fff;
-    border: 1px solid var(--border);
-    padding: 16px;
-    border-radius: 12px;
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  /* Products Grid */
-  .products-section {
-    padding: 40px 0 60px;
-  }
-
-  .section-title {
+  .hero-buttons .btn {
+    width: 100%;
     text-align: center;
-    font-size: 28px;
-    color: var(--purple);
-    margin-bottom: 6px;
   }
 
-  .section-subtitle {
-    text-align: center;
-    color: var(--grey);
-    margin-bottom: 30px;
-    font-size: 15px;
-  }
-
+  /* REQUESTED: 2 Column Layout for Product Cards on Mobile */
   .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 16px;
+    padding: 16px 10px;
+    font-size: 13px;
+    min-height: 80px;
+  }
+
+  /* Footer Mobile */
+  .footer-inner {
+    flex-direction: column;
     text-align: center;
-    font-weight: 600;
-    font-size: 14px;
-    color: #374151;
+  }
+
+  .footer-links {
     display: flex;
-    align-items: center;
     justify-content: center;
-    min-height: 90px;
-    transition: all 0.2s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(91, 30, 142, 0.08);
-    border-color: var(--purple);
-    color: var(--purple);
-  }
-
-  /* Footer */
-  .footer {
-    background: var(--purple-dark);
-    color: #fff;
-    padding: 40px 0;
-    margin-top: 40px;
-  }
-
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 12px;
   }
 
   .footer-links a {
-    color: #E9E5F2;
-    text-decoration: none;
-    margin-right: 12px;
-    font-size: 14px;
+    margin: 0;
   }
-
-  .footer-links a:hover {
-    color: #fff;
-    text-decoration: underline;
-  }
-
-  /* RESPONSIVE DESIGN (Tablets & Phones) */
-  @media (max-width: 992px) {
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      padding: 30px 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 32px;
-    }
-
-    .hero-badges, .hero-buttons {
-      justify-content: center;
-    }
-
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
-
-    /* Backdrop overlay */
-    .nav-overlay {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 998;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .nav-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Mobile Dropdown Nav */
-    .nav-links {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 80%;
-      max-width: 320px;
-      height: 100vh;
-      background: #fff;
-      flex-direction: column;
-      align-items: stretch;
-      padding: 80px 24px 30px;
-      gap: 16px;
-      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-      z-index: 999;
-      transition: right 0.3s ease;
-      overflow-y: auto;
-    }
-
-    .nav-links.open {
-      right: 0;
-    }
-
-    /* Nav Links Styling in Mobile */
-    .nav-links a {
-      padding: 12px 16px;
-      font-size: 16px;
-      border-radius: 8px;
-      display: block;
-      text-align: left;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-      background: var(--purple-light);
-    }
-
-    .nav-links a[style*="background"] {
-      text-align: center;
-      margin-top: 6px;
-    }
-
-    /* Close Button inside Mobile Nav */
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: var(--grey);
-      cursor: pointer;
-    }
-
-    .hero h1 {
-      font-size: 28px;
-    }
-
-    .hero p {
-      font-size: 14px;
-    }
-
-    .grid {
-      grid-template-columns: 1fr;
-    }
-
-    .footer-container {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .footer-container div {
-      text-align: center !important;
-    }
-  }
+}
 </style>
 </head>
 <body>
@@ -416,128 +377,115 @@
 <header>
   <div class="container nav">
     <div class="logo-wrap">
-      <img src="assets/Logo.png" alt="WHYZEE Logo" onerror="this.src='https://via.placeholder.com/50?text=W'">
+      <img src="assets/Logo.png" alt="WHYZEE Logo" onerror="this.src='https://via.placeholder.com/54'">
       <div class="logo-text">
-        <b>WHYZEE NIGERIA LTD</b>
+        <b>WHYZEE NIGERIA LIMITED</b>
         <span>Medical • Science • Technology</span>
       </div>
     </div>
 
-    <!-- Toggle Hamburger Button -->
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">☰</button>
+    <button class="hamburger" id="menuBtn" aria-label="Toggle Navigation">☰</button>
 
-    <!-- Overlay Screen for Mobile Menu -->
-    <div class="nav-overlay" id="navOverlay"></div>
-
-    <!-- Nav Links Container -->
     <nav class="nav-links" id="navLinks">
-      <button class="close-btn" id="closeBtn">&times;</button>
       <a href="index.html" class="active">Home</a>
       <a href="products.html">Products</a>
       <a href="service.html">Services</a>
-      <a href="about.html">About Us</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="admin.html" class="btn btn-purple" style="color:#fff;">Admin</a>
-      <a href="https://wa.me/2348035514153" target="_blank" class="btn btn-wa" style="color:#fff;">WhatsApp</a>
+      <a href="admin.html" style="background:var(--purple); color:#fff;">Admin</a>
+      <a href="https://wa.me/2348035514153" target="_blank" style="background:var(--wa); color:#fff;">WhatsApp</a>
     </nav>
   </div>
 </header>
 
-<main class="container hero">
-  <div>
-    <h1>Powering Healthcare Across Nigeria</h1>
-    <p>Your trusted partner for premium medical, laboratory, and diagnostic equipment. Lab Furniture, Medical Hospital Equipment, Language Lab, ICT Lab, E-Library, Engineering Equipment, Hospital Beds, Manikin Models, Biosafety Cabinets.</p>
-    
-    <div class="hero-badges">
-      <span class="badge">✅ Top Quality</span>
-      <span class="badge">💰 Affordable</span>
-      <span class="badge">🚚 Nationwide Delivery</span>
+<main class="container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Powering Healthcare Across Nigeria</h1>
+      <p>Your trusted partner for premium medical, laboratory, and diagnostic equipment. Lab Furniture, Medical Hospital Equipment, Language Lab, ICT Lab, E-Library, Engineering Equipment, Hospital Beds, Manikin Models, Biosafety Cabinets.</p>
+
+      <div class="hero-badges">
+        <span>✅ Top Quality</span>
+        <span>💰 Affordable</span>
+        <span>🚚 Nationwide Delivery</span>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="products.html" class="btn btn-purple">View Products</a>
+        <a href="service.html" class="btn" style="background:#fff; border:1px solid var(--border); color:var(--purple)">Our Services</a>
+        <a href="contact.html" class="btn" style="background:#fff; border:1px solid var(--border)">Contact Us</a>
+      </div>
+
+      <div class="contact-card">
+        <p><b>Lagos:</b> 4A Victory Close, Majiyagbe Layout, Church Bus Stop, Ipaja. 08035514153</p>
+        <p><b>Abuja:</b> 2 Methodist Church Close, Behind First Bank, Suleja. 08054709685</p>
+        <p style="margin-top:4px; color:var(--purple); font-weight:600;">info@whyzee.com.ng | www.whyzee.com.ng</p>
+      </div>
     </div>
 
-    <div class="hero-buttons">
-      <a href="products.html" class="btn btn-purple">View Products</a>
-      <a href="service.html" class="btn btn-outline" style="color:var(--purple); border-color:var(--purple)">Our Services</a>
-      <a href="contact.html" class="btn btn-outline">Contact Us</a>
-    </div>
+    <div>
+      <img src="assets/brochure.jeg" alt="WHYZEE Products" style="width:100%; border-radius:18px; box-shadow:0 12px 30px rgba(91,30,142,0.12); background:#fff;" onerror="this.src='https://via.placeholder.com/600x400?text=WHYZEE+Medical+Equipment'">
+    </div> 
+  </section>
 
-    <div class="contact-box">
-      <p><b>Lagos:</b> 4A Victory Close, Majiyagbe Layout, Church Bus Stop, Ipaja. 📞 08035514153</p>
-      <p style="margin-top: 6px;"><b>Abuja:</b> 2 Methodist Church Close, Behind First Bank, Suleja. 📞 09018192213</p>
-      <p style="margin-top: 6px; color:var(--purple); font-weight: 600;">✉️ info@whyzee.com.ng | 🌐 www.whyzee.com.ng</p>
-    </div>
-  </div>
+  <!-- Products Section -->
+  <section style="padding-top: 20px;">
+    <h2 class="section-title">Laboratory & Medical Products</h2>
+    <p class="section-subtitle">For Education • Industry • Healthcare</p>
 
-  <div>
-    <img src="assets/Logo.png" alt="WHYZEE Products" style="width:100%; border-radius:16px; box-shadow:0 15px 35px rgba(91,30,142,0.12); background:#fff;" onerror="this.src='https://via.placeholder.com/600x400?text=WHYZEE+Products'">
-  </div> 
+    <!-- Grid configured to 2fr (2 columns) on Mobile via CSS -->
+    <div class="grid">
+      <div class="card">Lab Furniture & Fittings</div>
+      <div class="card">Lab Equipment & Consumables</div>
+      <div class="card">Medical & Hospital Equipment</div>
+      <div class="card">GC-MS</div>
+      <div class="card">Language Lab & Gadgets</div>
+      <div class="card">Science Lab Equipment</div>
+      <div class="card">E-Library & Library</div>
+      <div class="card">Universal Testing Machine</div>
+      <div class="card">1/2 Crank Hospital Bed</div>
+      <div class="card">Manikin & Models</div>
+      <div class="card">Lecture Theatre</div>
+      <div class="card">Resistive Machine</div>
+      <div class="card">Biosafety Cabinet</div>
+      <div class="card">Cadaver Table</div>
+    </div>
+  </section>
 </main>
 
-<section class="container products-section">
-  <h2 class="section-title">Laboratory & Medical Products</h2>
-  <p class="section-subtitle">For Education • Industries • Healthcare</p>
-  
-  <div class="grid">
-    <div class="card">Lab Furniture & Fittings</div>
-    <div class="card">Lab Equipment & Consumables</div>
-    <div class="card">Medical & Hospital Equipment</div>
-    <div class="card">GC-MS</div>
-    <div class="card">Language Lab & Gadgets</div>
-    <div class="card">Science Lab Equipment</div>
-    <div class="card">E-Library & Library</div>
-    <div class="card">Universal Testing Machine</div>
-    <div class="card">1/2 Crank Hospital Bed</div>
-    <div class="card">Manikin & Models</div>
-    <div class="card">Lecture Theatre</div>
-    <div class="card">Resistive Machine</div>
-    <div class="card">Biosafety Cabinet</div>
-    <div class="card">Cadaver Table</div>
-  </div>
-</section>
-
 <footer class="footer">
-  <div class="container footer-container">
+  <div class="container footer-inner">
     <div>
-      <b style="font-size:16px;">WHYZEE NIGERIA LIMITED</b>
-      <p style="font-size:13px; opacity:0.85; margin-top:4px;">Medical Science Technology<br>Top Quality • Affordable • Nationwide Delivery</p>
+      <b>WHYZEE NIGERIA LIMITED</b><br>
+      <span style="opacity: 0.8; font-size: 13px;">Medical Science Technology • Top Quality • Affordable</span>
     </div>
-    <div style="text-align:right">
-      <div class="footer-links" style="margin-bottom: 10px;">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="service.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <p style="font-size:13px; opacity:0.85;">Lagos: 08035514153 | Abuja: 08054709685</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
 <script>
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const closeBtn = document.getElementById('closeBtn');
+  const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
-  const navOverlay = document.getElementById('navOverlay');
 
-  function openMenu() {
-    navLinks.classList.add('open');
-    navOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevents scrolling behind open menu
-  }
+  // Toggle mobile dropdown menu
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
 
-  function closeMenu() {
-    navLinks.classList.remove('open');
-    navOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  hamburgerBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-  navOverlay.addEventListener('click', closeMenu);
-
-  // Close menu when clicking links on mobile
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
+  // Close navigation menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
   });
 </script>
 
